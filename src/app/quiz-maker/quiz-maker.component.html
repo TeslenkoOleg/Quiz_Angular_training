@@ -1,0 +1,27 @@
+<div class="main-form-container">
+
+    <app-autofilter-dropdown [entries$]="categories$" (selectionChange)="updateCategory($event)"
+                             placeholder="Enter category"></app-autofilter-dropdown>
+
+    <app-autofilter-dropdown [entries$]="subcategories$" [(selection)]="selectedSubCategory"
+                             placeholder="Enter sub-category"
+                             [hidden]="hiddenSubCategory"></app-autofilter-dropdown>
+
+    <app-autofilter-dropdown [entries$]="quizDifficulties$" [(selection)]="selectedDifficulty"
+                             placeholder="Enter difficulty"></app-autofilter-dropdown>
+
+  <div>
+    <button class="primary custom-btn"
+            id="createBtn"
+            [disabled]="(!selectedCategory && !selectedSubCategory)"
+            (click)="createQuiz()">Create</button>
+  </div>
+</div>
+
+<div>
+   <app-quiz [questions]="questions$ | async"
+             [changeQuestionIndex]="changeQuestionIndex$"
+             [newQuestion]="updatedQuestion$ | async"
+             (changeQuestionEmitter)="onChangeQuestion($event)"
+   ></app-quiz>
+</div>

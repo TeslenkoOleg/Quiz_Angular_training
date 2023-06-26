@@ -1,0 +1,14 @@
+<div appHideByClick>
+  <app-question *ngFor="let q of questions; index as i; trackBy: trackFn" [question]="q"
+                [questionIndex]="q"
+                (change)="userAnswers[i] = $event"
+                (changeQuestion)="changeQuestion($event)"
+  >
+  </app-question>
+</div>
+
+<div>
+  <button class="inverse large custom-btn" *ngIf="userAnswers.length == 5" (click)="submit()">
+    Submit
+  </button>
+</div>

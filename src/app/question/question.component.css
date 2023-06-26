@@ -1,0 +1,9 @@
+.question-container{
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.2);
+  padding: 10px;
+  margin: 5px;
+}
+.custom-btn {
+   border-radius: 5px;
+   line-height: 20px;
+ }
