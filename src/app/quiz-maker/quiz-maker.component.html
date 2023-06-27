@@ -25,7 +25,7 @@
   >
   </app-quiz>
 </div>
-<!--use content projection-->
+<!--passing template into child component-->
 <ng-template #updateQuestion let-data = "data">
   <button class="custom-btn" (click)="onChangeQuestion(data)">Change question</button>
 </ng-template>

@@ -7,7 +7,7 @@
     </app-question>
 
     <div class="chane-question-btn">
-      <!--use content projection and pass context data-->
+      <!--use ngTemplateOutlet and pass context data-->
       <ng-container *ngTemplateOutlet="updateQuestionTemplate; context: { data: q }"></ng-container>
     </div>
   </div>
