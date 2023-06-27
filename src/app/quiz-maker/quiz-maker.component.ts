@@ -24,9 +24,7 @@ export class QuizMakerComponent {
   selectedQuizCategoryId!: string;
 
   // for changing question
-  changeQuestionIndex$ = new Subject<Question>();
   updatedQuestion$!: Observable<Question[]>;
-  changedQuestionStore: Question[] = [];
 
   // hide subcategory dropdown until category isn't selected
   hiddenSubCategory: boolean = true;
@@ -35,6 +33,8 @@ export class QuizMakerComponent {
   includeSubCategory = new Set<string>();
   quizDifficulties$: Observable<ISelectData[]>;
   oldQuestions: Question[] = [];
+
+  hideUpdateQuestionTemplate: boolean = false;
 
   constructor(protected quizService: QuizService) {
     // get difficulties from service and convert to observable
@@ -51,6 +51,8 @@ export class QuizMakerComponent {
   }
 
   createQuiz(): void {
+    this.hideUpdateQuestionTemplate = false;
+
     this.selectedQuizCategoryId = ''+(this.selectedSubCategory ? this.selectedSubCategory.id : this.selectedCategory ? this.selectedCategory.id : '');
     this.questions$ = this.quizService.createQuiz(this.selectedQuizCategoryId, this.selectedDifficulty?.name as Difficulty)
       .pipe(
@@ -103,6 +105,7 @@ export class QuizMakerComponent {
   }
   onChangeQuestion(event: any): void {
     let questionToChange = event;
+    this.hideUpdateQuestionTemplate = true;
     // get updated questions
     this.updatedQuestion$ = this.quizService.createQuiz(this.selectedQuizCategoryId, this.selectedDifficulty?.name as Difficulty)
       .pipe(

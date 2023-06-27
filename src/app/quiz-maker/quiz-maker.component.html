@@ -20,8 +20,15 @@
 
 <div>
    <app-quiz [questions]="questions$ | async"
-             [changeQuestionIndex]="changeQuestionIndex$"
              [newQuestion]="updatedQuestion$ | async"
-             (changeQuestionEmitter)="onChangeQuestion($event)"
-   ></app-quiz>
+             [updateQuestionTemplate]="hideUpdateQuestionTemplate ? hideUpdateQuestion : updateQuestion"
+   >
+   </app-quiz>
 </div>
+<!--use content projection-->
+<ng-template #updateQuestion let-data = "data">
+  <button class="custom-btn" (click)="onChangeQuestion(data)">Change question</button>
+</ng-template>
+<!--after one click hide button-->
+<ng-template #hideUpdateQuestion>
+</ng-template>

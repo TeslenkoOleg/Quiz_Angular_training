@@ -1,10 +1,16 @@
-<div appHideByClick>
-  <app-question *ngFor="let q of questions; index as i; trackBy: trackFn" [question]="q"
-                [questionIndex]="q"
-                (change)="userAnswers[i] = $event"
-                (changeQuestion)="changeQuestion($event)"
-  >
-  </app-question>
+<div >
+  <div class="quiz-container" *ngFor="let q of questions; index as i; trackBy: trackFn">
+
+    <app-question class="quiz-question-container" [question]="q"
+                   (change)="userAnswers[i] = $event"
+    >
+    </app-question>
+
+    <div class="chane-question-btn">
+      <!--use content projection and pass context data-->
+      <ng-container *ngTemplateOutlet="updateQuestionTemplate; context: { data: q }"></ng-container>
+    </div>
+  </div>
 </div>
 
 <div>
