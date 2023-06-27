@@ -1,14 +1,14 @@
 <div class="main-form-container">
 
-    <app-autofilter-dropdown [entries$]="categories$" (selectionChange)="updateCategory($event)"
-                             placeholder="Enter category"></app-autofilter-dropdown>
+  <app-autofilter-dropdown [entries$]="categories$" (selectionChange)="updateCategory($event)"
+                           placeholder="Enter category"></app-autofilter-dropdown>
 
-    <app-autofilter-dropdown [entries$]="subcategories$" [(selection)]="selectedSubCategory"
-                             placeholder="Enter sub-category"
-                             [hidden]="hiddenSubCategory"></app-autofilter-dropdown>
+  <app-autofilter-dropdown [entries$]="subcategories$" [(selection)]="selectedSubCategory"
+                           placeholder="Enter sub-category"
+                           [hidden]="hiddenSubCategory"></app-autofilter-dropdown>
 
-    <app-autofilter-dropdown [entries$]="quizDifficulties$" [(selection)]="selectedDifficulty"
-                             placeholder="Enter difficulty"></app-autofilter-dropdown>
+  <app-autofilter-dropdown [entries$]="quizDifficulties$" [(selection)]="selectedDifficulty"
+                           placeholder="Enter difficulty"></app-autofilter-dropdown>
 
   <div>
     <button class="primary custom-btn"
@@ -19,11 +19,11 @@
 </div>
 
 <div>
-   <app-quiz [questions]="questions$ | async"
-             [newQuestion]="updatedQuestion$ | async"
-             [updateQuestionTemplate]="hideUpdateQuestionTemplate ? hideUpdateQuestion : updateQuestion"
-   >
-   </app-quiz>
+  <app-quiz [questions]="questions$ | async"
+            [newQuestion]="updatedQuestion$ | async"
+            [updateQuestionTemplate]="hideUpdateQuestionTemplate ? hideUpdateQuestion : updateQuestion"
+  >
+  </app-quiz>
 </div>
 <!--use content projection-->
 <ng-template #updateQuestion let-data = "data">

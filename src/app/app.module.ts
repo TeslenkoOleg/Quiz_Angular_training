@@ -12,7 +12,6 @@ import { AnswersComponent } from './answers/answers.component';
 import { CategoriesParentNamePipe } from './pipes/categories-parent-name.pipe';
 import {AutofilterDropdownComponent} from "./autofilter-dropdown/autofilter-dropdown.component";
 import {HighlightPipe} from "./pipes/highlight.pipe";
-import {HideByClickDirective} from "./directives/hide-by-click.directive";
 import {LoadingLogoComponent} from "./loading-logo/loading-logo.component";
 import {LoaderInterceptor} from "./interceptors/loader.interceptor";
 
@@ -33,7 +32,6 @@ import {LoaderInterceptor} from "./interceptors/loader.interceptor";
         ReactiveFormsModule,
         CategoriesParentNamePipe,
         HighlightPipe,
-        HideByClickDirective,
         LoadingLogoComponent,
     ],
   providers: [
